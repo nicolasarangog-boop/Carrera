@@ -8,7 +8,7 @@ public abstract class Profesor {
     private int id;
     private String titulo;
     private int aniosXp;
-    private ArrayList <Materia> listaMaterias;
+    private ArrayList <Materia> listaMaterias= new ArrayList<>();
     private Carrera ownedByCarrera;
     
     public Profesor(String nombre, int id, String titulo, int aniosXp, Carrera ownedByCarrera) {
@@ -16,7 +16,6 @@ public abstract class Profesor {
         this.id = id;
         this.titulo = titulo;
         this.aniosXp = aniosXp;
-        this.listaMaterias = new ArrayList<>();
         this.ownedByCarrera = ownedByCarrera;
     }
 

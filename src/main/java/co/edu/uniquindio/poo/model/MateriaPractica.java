@@ -34,7 +34,10 @@ public class MateriaPractica extends Materia {
 
   @Override
   public String toString() {
-    return "Practica [noHorasPractica=" + noHorasPractica + ", noLaboratorio=" + noLaboratorio + "]";
+    return String.format("Codigo: %d, Nombre: %s, Numero Horas: %d, Creditos: %d, Semestre: %d, No Horas Practica: %d, No Laboratorio: %d, Profesor: %s", 
+        getCodigo(), getNombre(), getNumeroHoras(), getCreditos(), getSemestre(), 
+        noHorasPractica, noLaboratorio,
+        getProfesor() != null ? getProfesor().getNombre() : "No asignado");
   }
 
 }

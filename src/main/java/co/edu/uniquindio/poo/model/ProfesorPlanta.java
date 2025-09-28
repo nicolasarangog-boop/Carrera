@@ -30,7 +30,7 @@ public void setProyectos(boolean proyectos) {
 
 @Override
 public String toString() {
-    return "ProfesorPlanta [tiempoTrabajo=" + tiempoTrabajo + ", proyectos=" + proyectos + "]";
+    return super.toString() + String.format(", Tiempo Trabajo: %s, Proyectos: %b", tiempoTrabajo, proyectos);
 }
 
 

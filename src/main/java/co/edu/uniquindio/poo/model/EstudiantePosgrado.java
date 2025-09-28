@@ -30,7 +30,9 @@ public void setTemaInvestigacion(String temaInvestigacion) {
 
 @Override
 public String toString() {
-    return "EstudiantePosgrado [tipoEstudio=" + tipoEstudio + ", temaInvestigacion=" + temaInvestigacion + "]";
+    return String.format("ID: %d, Nombre: %s, Identificador: %s, Programa: %s, Semestre: %d, Tipo Estudio: %s, Tema Investigacion: %s", 
+        getId(), getNombre(), getIdentificador(), getPrograma(), getSemestre(), 
+        tipoEstudio, temaInvestigacion);
 }
 
 }

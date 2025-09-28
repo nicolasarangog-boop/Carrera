@@ -13,7 +13,9 @@ public int calcularHorasSemanales() {
 
 @Override
 public String toString() {
-  return  "Teorica []";
+  return String.format("Codigo: %d, Nombre: %s, Numero Horas: %d, Creditos: %d, Semestre: %d, Profesor: %s", 
+      getCodigo(), getNombre(), getNumeroHoras(), getCreditos(), getSemestre(), 
+      getProfesor() != null ? getProfesor().getNombre() : "No asignado");
 }
 
 }

@@ -30,7 +30,9 @@ public class EstudiantePregrado extends Estudiante {
 
     @Override
     public String toString() {
-        return "Pregrado [beca=" + beca + ", promedio=" + promedio + "]";
+        return String.format("ID: %d, Nombre: %s, Identificador: %s, Programa: %s, Semestre: %d, Beca: %b, Promedio: %.2f", 
+            getId(), getNombre(), getIdentificador(), getPrograma(), getSemestre(), 
+            beca, promedio);
     }
 
 }
