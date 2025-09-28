@@ -248,6 +248,7 @@ public String asignarProfesorMateria(int codigo, int id){
     Optional<Profesor> profesorExistente= buscarProfesor(id);
     if(materiaExistente.isPresent() && profesorExistente.isPresent()){
         materiaExistente.get().setProfesor(profesorExistente.get());
+        profesor.getListaMaterias().add(materia);
         mensaje="El profesor " + profesorExistente.get().getNombre() + " fue asignado a la materia " + materiaExistente.get().getNombre() + " exitosamente";
     }else{
         mensaje="La materia o el profesor no existen en la carrera";
