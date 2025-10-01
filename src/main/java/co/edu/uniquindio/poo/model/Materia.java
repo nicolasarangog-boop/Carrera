@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Materia {
 
@@ -14,8 +15,13 @@ public abstract class Materia {
     private ArrayList<Estudiante> listaEstudiantes;
 
     public Materia(int codigo, String nombre, int numeroHoras, int creditos, int semestre, Carrera ownedByCarrera, Profesor profesor) {
+        if (codigo<=0) throw new IllegalArgumentException("El codigo debe ser un numero positivo");
+        if (numeroHoras <= 0) throw new IllegalArgumentException("El numero de horas debe ser un numero positivo");
+        if (creditos <= 0) throw new IllegalArgumentException("Los creditos deben ser un numero positivo");
+        if (semestre <= 0) throw new IllegalArgumentException("El semestre debe ser un numero positivo"); 
+        
         this.codigo = codigo;
-        this.nombre = nombre;
+        this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
         this.numeroHoras = numeroHoras;
         this.creditos = creditos;
         this.semestre = semestre;

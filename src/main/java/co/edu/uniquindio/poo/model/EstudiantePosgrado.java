@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.model;
+import java.util.Objects;
 
 public class EstudiantePosgrado extends Estudiante{
 
@@ -9,7 +10,7 @@ public EstudiantePosgrado(int id, String nombre, String identificador, String pr
         Carrera ownedByCarrera, TipoEstudioPosgrado tipoEstudio, String temaInvestigacion) {
     super(id, nombre, identificador, programa, semestre, ownedByCarrera);
     this.tipoEstudio = tipoEstudio;
-    this.temaInvestigacion = temaInvestigacion;
+    this.temaInvestigacion = Objects.requireNonNull(temaInvestigacion, "El tema de investigacion no puede ser nulo");
 }
 
 public TipoEstudioPosgrado getTipoEstudio() {

@@ -3,13 +3,16 @@ package co.edu.uniquindio.poo.model;
 public class MateriaPractica extends Materia {
 
   private int noHorasPractica;
-  private int noLaboratorio;
+  private int noHorasLaboratorio;
   
   public MateriaPractica(int codigo, String nombre, int numeroHoras, int creditos, int semestre, Carrera ownedByCarrera,
-      Profesor profesor, int noHorasPractica, int noLaboratorio) {
+      Profesor profesor, int noHorasPractica, int noHorasLaboratorio) {
     super(codigo, nombre, numeroHoras, creditos, semestre, ownedByCarrera, profesor);
+    
+    if (noHorasPractica < 0) throw new IllegalArgumentException("El numero de horas de practica no puede ser negativo");
+    
     this.noHorasPractica = noHorasPractica;
-    this.noLaboratorio = noLaboratorio;
+    this.noHorasLaboratorio = noHorasLaboratorio;
   }
 
   public int getNoHorasPractica() {
@@ -20,12 +23,12 @@ public class MateriaPractica extends Materia {
     this.noHorasPractica = noHorasPractica;
   }
 
-  public int getNoLaboratorio() {
-    return noLaboratorio;
+  public int getNoHorasLaboratorio() {
+    return noHorasLaboratorio;
   }
 
-  public void setNoLaboratorio(int noLaboratorio) {
-    this.noLaboratorio = noLaboratorio;
+  public void setNoHorasLaboratorio(int noHorasLaboratorio) {
+    this.noHorasLaboratorio = noHorasLaboratorio;
   }
 
   public int calcularHorasSemanales() {
@@ -34,9 +37,9 @@ public class MateriaPractica extends Materia {
 
   @Override
   public String toString() {
-    return String.format("Codigo: %d, Nombre: %s, Numero Horas: %d, Creditos: %d, Semestre: %d, No Horas Practica: %d, No Laboratorio: %d, Profesor: %s", 
+    return String.format("Codigo: %d, Nombre: %s, Numero Horas: %d, Creditos: %d, Semestre: %d, No Horas Practica: %d, No Horas Laboratorio: %d, Profesor: %s", 
         getCodigo(), getNombre(), getNumeroHoras(), getCreditos(), getSemestre(), 
-        noHorasPractica, noLaboratorio,
+        noHorasPractica, noHorasLaboratorio,
         getProfesor() != null ? getProfesor().getNombre() : "No asignado");
   }
 

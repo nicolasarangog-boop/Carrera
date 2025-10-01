@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.Objects;
 
 public class Carrera {
 
@@ -14,9 +15,9 @@ public class Carrera {
     private ArrayList <Estudiante> listaEstudiantes;
 
     public Carrera(String nombre, String direccion, String nit) {
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.nit = nit;
+        this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
+        this.direccion = Objects.requireNonNull(direccion, "La direccion no puede ser nula");
+        this.nit = Objects.requireNonNull(nit, "El nit no puede ser nulo");
         this.listaMaterias = new ArrayList<>();
         this.listaProfesores = new ArrayList<>();
         this.listaEstudiantes = new ArrayList<>();

@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Estudiante {
 
@@ -13,10 +14,13 @@ private Carrera ownedByCarrera;
 private ArrayList<Materia> listaMaterias;
 
 public Estudiante(int id, String nombre, String identificador, String programa, int semestre, Carrera ownedByCarrera) {
+    if (id <= 0) throw new IllegalArgumentException("El ID debe ser un numero positivo");
+    if (semestre <= 0) throw new IllegalArgumentException("El semestre debe ser un numero positivo");
+    
     this.id = id;
-    this.nombre = nombre;
-    this.identificador = identificador;
-    this.programa = programa;
+    this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
+    this.identificador = Objects.requireNonNull(identificador, "El identificador no puede ser nulo");
+    this.programa = Objects.requireNonNull(programa, "El programa no puede ser nulo");
     this.semestre = semestre;
     this.ownedByCarrera = ownedByCarrera;
     this.listaMaterias = new ArrayList<>();

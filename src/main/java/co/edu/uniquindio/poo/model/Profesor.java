@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Profesor {
 
@@ -12,9 +13,13 @@ public abstract class Profesor {
     private Carrera ownedByCarrera;
     
     public Profesor(String nombre, int id, String titulo, int aniosXp, Carrera ownedByCarrera) {
-        this.nombre = nombre;
+        
+        if (id <= 0) throw new IllegalArgumentException("El ID debe ser un numero positivo");
+        if (aniosXp < 0) throw new IllegalArgumentException("Los años de experiencia no pueden ser negativos");
+        
+        this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
         this.id = id;
-        this.titulo = titulo;
+        this.titulo = Objects.requireNonNull(titulo, "El titulo no puede ser nulo");
         this.aniosXp = aniosXp;
         this.ownedByCarrera = ownedByCarrera;
     }

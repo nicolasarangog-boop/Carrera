@@ -8,6 +8,9 @@ public class EstudiantePregrado extends Estudiante {
     public EstudiantePregrado(int id, String nombre, String identificador, String programa, int semestre, Carrera ownedByCarrera,
             boolean beca, double promedio) {
         super(id, nombre, identificador, programa, semestre, ownedByCarrera);
+       
+       if (promedio < 0.0 || promedio > 5.0) throw new IllegalArgumentException("El promedio debe estar entre 0.0 y 5.0");
+       
         this.beca = beca;
         this.promedio = promedio;
     }

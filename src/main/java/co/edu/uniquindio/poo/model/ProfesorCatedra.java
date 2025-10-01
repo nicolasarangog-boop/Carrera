@@ -8,6 +8,9 @@ public class ProfesorCatedra extends Profesor {
     public ProfesorCatedra(String nombre, int id, String titulo, int aniosXp, Carrera ownedByCarrera, int horasContrato,
             boolean empresaExterna) {
         super(nombre, id, titulo, aniosXp, ownedByCarrera);
+
+        if (horasContrato < 0) throw new IllegalArgumentException("Las horas de contrato deben ser un numero positivo");
+
         this.horasContrato = horasContrato;
         this.empresaExterna = empresaExterna;
     }
